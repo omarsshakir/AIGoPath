@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="AlgoPath – Learn Python Through Algorithms. A modern interactive platform for mastering Python through visual lessons, step-by-step execution, and coding challenges." />
+  <title>AlgoPath – Learn Python Through Algorithms</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header" id="home">
+    <div class="container header-container">
+      <div class="brand-area">
+        <a href="index.html" class="brand-logo" aria-label="AlgoPath Home">
+          <span class="brand-mark">&lt;/&gt;</span>
+          <span class="brand-name">AlgoPath</span>
+        </a>
+      </div>
+      <nav class="main-nav" aria-label="Main Navigation">
+        <ul class="nav-list">
+          <li><a href="index.html" class="nav-link is-active">Home</a></li>
+          <li><a href="#categories" class="nav-link">Categories</a></li>
+          <li><a href="python-fundamentals.html" class="nav-link">Fundamentals</a></li>
+          <li><a href="#how" class="nav-link">How It Works</a></li>
+          <li><a href="#features" class="nav-link">Features</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- Hero -->
+    <section class="home-hero" id="hero">
+      <div class="container home-hero-content">
+        <p class="section-label">Interactive Python Academy</p>
+        <h1 class="home-hero-title">Master Python Through Interactive Learning</h1>
+        <p class="home-hero-desc">
+          AlgoPath transforms Python into a structured visual journey. Step through code
+          execution line by line, understand what functions return, predict outputs, and
+          build deep programming intuition — one level at a time.
+        </p>
+        <div class="home-hero-actions">
+          <a href="python-basics.html" class="btn btn-primary">Start with Python Basics</a>
+          <a href="#categories" class="btn btn-secondary">Explore Categories</a>
+          <a href="python-fundamentals.html" class="btn btn-outline">Python Fundamentals</a>
+        </div>
+        <div class="home-hero-stats">
+          <div>
+            <span class="home-stat-val" data-level-total>507</span>
+            <span class="home-stat-label">Levels</span>
+          </div>
+          <div class="home-stat-div"></div>
+          <div>
+            <span class="home-stat-val" data-category-total>6</span>
+            <span class="home-stat-label">Categories</span>
+          </div>
+          <div class="home-stat-div"></div>
+          <div>
+            <span class="home-stat-val">100%</span>
+            <span class="home-stat-label">Real Python</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-section" id="how">
+      <div class="container">
+        <div class="section-heading">
+          <p class="section-label">How It Works</p>
+          <h2 class="section-title">Three Steps to Python Mastery</h2>
+          <p class="section-description">
+            Every level is a complete micro-lesson. Read the code, trace execution step by step,
+            and see output exactly as it would appear in a real VS Code terminal.
+          </p>
+        </div>
+        <div class="how-steps">
+          <div class="how-step">
+            <span class="how-step-num">1</span>
+            <h3 class="how-step-title">Choose a Level</h3>
+            <p class="how-step-desc">Pick any level from your chosen category. Each card shows which Python concepts are covered, the challenge title, and your unlock status.</p>
+          </div>
+          <div class="how-step">
+            <span class="how-step-num">2</span>
+            <h3 class="how-step-title">Step Through the Code</h3>
+            <p class="how-step-desc">Use the step controls or keyboard arrows to execute the code line by line. Each step reveals what Python is doing with inline annotations explaining every operation.</p>
+          </div>
+          <div class="how-step">
+            <span class="how-step-num">3</span>
+            <h3 class="how-step-title">See Real Output</h3>
+            <p class="how-step-desc">The output renders in a realistic VS Code terminal panel with syntax-colored values. Copy the code, paste into VS Code, run it — the output matches exactly.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Categories -->
+    <section class="categories-section" id="categories">
+      <div class="container">
+        <div class="section-heading">
+          <p class="section-label">Learning Tracks</p>
+          <h2 class="section-title">Four Categories, One Complete Journey</h2>
+          <p class="section-description">
+            Start with Python fundamentals and progress through application development,
+            UI design, and artificial intelligence. Each category unlocks its own sequence of lessons.
+          </p>
+        </div>
+        <div class="categories-grid">
+
+          <a href="python-basics.html" class="cat-card cat-card-python">
+            <span class="cat-card-icon">
+                <img src="images/python.png" alt="Python Basics">
+            </span>
+            <h3 class="cat-card-title">Python Basics</h3>
+            <p class="cat-card-desc">
+              Start from the very first building blocks of Python. Master variables, loops,
+              functions, data structures, file I/O, error handling, and core algorithms.
+              The essential foundation for everything else in programming.
+            </p>
+            <div class="cat-card-meta">
+              <span class="cat-card-count" data-level-count="python-basics">250 Levels</span>
+            </div>
+            <span class="cat-card-link">Start Learning →</span>
+          </a>
+
+          <a href="applications.html" class="cat-card cat-card-apps">
+            <span class="cat-card-icon">
+                <img src="images/application.png" alt="Application Development">
+            </span>
+            <h3 class="cat-card-title">Application Development</h3>
+            <p class="cat-card-desc">
+              Build real Python applications using modules, file systems, REST APIs,
+              databases, and proper project structure. Learn how production-grade code
+              is organized, tested, and deployed.
+            </p>
+            <div class="cat-card-meta">
+              <span class="cat-card-count" data-level-count="applications">34 Levels</span>
+            </div>
+            <span class="cat-card-link">Start Learning →</span>
+          </a>
+
+          <a href="user-interface.html" class="cat-card cat-card-ui">
+            <span class="cat-card-icon">
+                <img src="images/ui.png" alt="User Interface">
+            </span>
+            <h3 class="cat-card-title">User Interface</h3>
+            <p class="cat-card-desc">
+              Create interactive user interfaces with forms, dashboards, visual layouts,
+              and dynamic experiences. Learn how to think like a frontend developer
+              using Python-driven UI concepts.
+            </p>
+            <div class="cat-card-meta">
+              <span class="cat-card-count" data-level-count="user-interface">133 Levels</span>
+            </div>
+            <span class="cat-card-link">Start Learning →</span>
+          </a>
+
+          <a href="ai.html" class="cat-card cat-card-ai">
+            <span class="cat-card-icon">
+                <img src="images/ai.png" alt="Artificial Intelligence">
+            </span>
+            <h3 class="cat-card-title">Artificial Intelligence</h3>
+            <p class="cat-card-desc">
+              Explore NumPy, Pandas, data visualization, machine learning models,
+              neural network fundamentals, and real AI project development. Move
+              from algorithms to intelligence.
+            </p>
+            <div class="cat-card-meta">
+              <span class="cat-card-count" data-level-count="artificial-intelligence">50 Levels</span>
+            </div>
+            <span class="cat-card-link">Start Learning →</span>
+          </a>
+
+          <a href="cyber-security.html" class="cat-card cat-card-cyber">
+            <span class="cat-card-icon">
+                <img src="images/cyber-security.png" alt="Cyber Security">
+            </span>
+            <h3 class="cat-card-title">Cyber Security</h3>
+            <p class="cat-card-desc">
+              Master ethical hacking in Python — cryptography, ciphers, password
+              security, network scanning, file integrity checking, and web
+              vulnerability awareness. Think like a hacker, defend like a pro.
+            </p>
+            <div class="cat-card-meta">
+              <span class="cat-card-count" data-level-count="cyber-security">30 Levels</span>
+            </div>
+            <span class="cat-card-link">Start Learning →</span>
+          </a>
+
+          <a href="data-analysis.html" class="cat-card cat-card-data">
+            <span class="cat-card-icon">
+                <img src="images/data-analysis.png" alt="Data Analysis">
+            </span>
+            <h3 class="cat-card-title">Data Analysis</h3>
+            <p class="cat-card-desc">
+              Turn raw numbers into insights — compute statistics, sort and filter
+              records, group and aggregate data, detect outliers, and build
+              text-based visualisations. The foundation of every data science role.
+            </p>
+            <div class="cat-card-meta">
+              <span class="cat-card-count" data-level-count="data-analysis">10 Levels</span>
+            </div>
+            <span class="cat-card-link">Start Learning →</span>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features-section" id="features">
+      <div class="container">
+        <div class="section-heading">
+          <p class="section-label">Platform Features</p>
+          <h2 class="section-title">Built to Feel Like Real Development</h2>
+          <p class="section-description">
+            Every feature bridges the gap between learning and real-world Python development.
+          </p>
+        </div>
+
+        <div class="features-grid">
+
+          <div class="feature-card">
+            <span class="feature-icon">
+              <img src="images/terminal.png" alt="VS Code Terminal">
+            </span>
+            <h3 class="feature-title">VS Code Terminal Output</h3>
+            <p class="feature-desc">
+              Output renders in a realistic VS Code terminal panel with syntax-colored values,
+              shell prompts, and a blinking cursor — exactly how it looks in real life.
+            </p>
+          </div>
+
+
+          <div class="feature-card">
+            <span class="feature-icon">
+              <img src="images/syntax.png" alt="Syntax Highlighting">
+            </span>
+            <h3 class="feature-title">Syntax Highlighting</h3>
+            <p class="feature-desc">
+              Code displays with the full VS Code Dark+ color scheme — keywords, strings,
+              numbers, functions, and builtins all color-coded just like your editor.
+            </p>
+          </div>
+
+
+          <div class="feature-card">
+            <span class="feature-icon">
+              <img src="images/execution.png" alt="Step by Step Execution">
+            </span>
+            <h3 class="feature-title">Step-by-Step Execution</h3>
+            <p class="feature-desc">
+              Step through each line and see exactly what Python executes,
+              with inline annotations explaining every operation.
+            </p>
+          </div>
+
+
+          <div class="feature-card">
+            <span class="feature-icon">
+              <img src="images/copy-code.png" alt="Copy Code">
+            </span>
+            <h3 class="feature-title">Copy to VS Code</h3>
+            <p class="feature-desc">
+              Every code example is correctly indented and formatted.
+              Paste it directly into VS Code and run it.
+            </p>
+          </div>
+
+
+          <div class="feature-card">
+            <span class="feature-icon">
+              <img src="images/progress.png" alt="Progress Tracking">
+            </span>
+            <h3 class="feature-title">XP &amp; Progress Tracking</h3>
+            <p class="feature-desc">
+              Earn XP for completed lessons, unlock badges as you progress,
+              and track your learning across all categories.
+            </p>
+          </div>
+
+
+          <div class="feature-card">
+            <span class="feature-icon">
+              <img src="images/challenge.png" alt="Challenge System">
+            </span>
+            <h3 class="feature-title">Challenge System</h3>
+            <p class="feature-desc">
+              Every level includes a coding challenge with a starter hint.
+              Reveal hints when you are ready to improve.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-container">
+      <div class="footer-brand">
+        <h3 class="footer-logo">AlgoPath</h3>
+        <p class="footer-statement">
+          Learn Python through interactive step-by-step lessons, execution tracing,
+          and progressive challenges. Build real programming intuition one level at a time.
+        </p>
+      </div>
+      <div class="footer-links">
+        <h4 class="footer-heading">Categories</h4>
+        <ul class="footer-list">
+          <li><a href="python-basics.html">🐍 Python Basics</a></li>
+          <li><a href="applications.html">⚙️ App Development</a></li>
+          <li><a href="user-interface.html">🎨 User Interface</a></li>
+          <li><a href="ai.html">🤖 Artificial Intelligence</a></li>
+          <li><a href="cyber-security.html">🔐 Cyber Security</a></li>
+          <li><a href="data-analysis.html">📊 Data Analysis</a></li>
+          <li><a href="python-fundamentals.html">📚 Python Fundamentals</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h4 class="footer-heading">Platform</h4>
+        <ul class="footer-list">
+          <li>VS Code Terminal Output</li>
+          <li>Syntax Highlighting</li>
+          <li>Step-by-Step Execution</li>
+          <li>XP &amp; Progress Tracking</li>
+          <li>Coding Challenges</li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script src="chat-tutor.js"></script>
+</body>
+</html>

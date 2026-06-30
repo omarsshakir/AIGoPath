@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Python Fundamentals — AlgoPath. Beginner-friendly explanations of Python keywords, built-in functions, and core concepts with runnable terminal showcases." />
+  <title>Python Fundamentals — AlgoPath</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* ── Python Fundamentals theme: teal / sky ── */
+    :root {
+      --accent-primary:   #2dd4bf;
+      --accent-secondary: #38bdf8;
+      --accent-tertiary:  #5eead4;
+      --border-color:     rgba(45, 212, 191, 0.18);
+      --border-strong:    rgba(45, 212, 191, 0.38);
+      --glow-primary:     0 0 0 1px rgba(45,212,191,0.08), 0 0 22px rgba(45,212,191,0.18);
+      --glow-secondary:   0 0 0 1px rgba(56,189,248,0.12), 0 0 24px rgba(56,189,248,0.16);
+      --gradient-primary: linear-gradient(135deg, #2dd4bf 0%, #38bdf8 100%);
+      --gradient-secondary: linear-gradient(135deg, rgba(45,212,191,0.12), rgba(56,189,248,0.14));
+      --gradient-hero:
+        radial-gradient(circle at top right, rgba(45,212,191,0.20), transparent 32%),
+        radial-gradient(circle at top left,  rgba(56,189,248,0.14), transparent 30%),
+        linear-gradient(180deg, #07111f 0%, #091525 36%, #0b1829 100%);
+    }
+
+    /* Concept list */
+    .fc-chips { display:flex; flex-wrap:wrap; gap:0.5rem; justify-content:center; margin-bottom:2rem; }
+    .fc-chip {
+      font: inherit; font-size:0.82rem; font-weight:600; cursor:pointer; color:var(--text-muted,#9fb4cc);
+      padding:7px 15px; border-radius:999px; background:rgba(255,255,255,0.04);
+      border:1px solid rgba(255,255,255,0.1); transition:all .18s;
+    }
+    .fc-chip:hover { color:#fff; border-color:var(--border-strong); }
+    .fc-chip.is-active {
+      color:#06121f; background:var(--gradient-primary); border-color:transparent; font-weight:700;
+    }
+
+    .fc-search { max-width:540px; margin:0 auto 1.4rem; position:relative; }
+    .fc-search input {
+      width:100%; box-sizing:border-box; font:inherit; font-size:0.95rem; color:#fff;
+      padding:13px 16px 13px 44px; border-radius:14px;
+      background:rgba(255,255,255,0.04); border:1px solid var(--border-color);
+      transition:border-color .2s, box-shadow .2s;
+    }
+    .fc-search input::placeholder { color:var(--text-muted,#9fb4cc); }
+    .fc-search input:focus {
+      outline:none; border-color:var(--accent-primary);
+      box-shadow:0 0 0 3px color-mix(in srgb, var(--accent-primary) 22%, transparent);
+    }
+    .fc-search::before {
+      content:"🔍"; position:absolute; left:15px; top:50%; transform:translateY(-50%);
+      font-size:1rem; opacity:0.7; pointer-events:none;
+    }
+    .fc-noresult { grid-column:1/-1; text-align:center; color:var(--text-muted,#9fb4cc); padding:2.5rem 1rem; line-height:1.7; }
+
+    .fc-grid {
+      display:grid; grid-template-columns:repeat(auto-fill, minmax(230px, 1fr)); gap:1.1rem;
+    }
+    .fc-card {
+      position:relative; text-align:left; cursor:pointer; font:inherit; color:inherit;
+      padding:1.3rem; border-radius:18px; background:rgba(255,255,255,0.025);
+      border:1px solid var(--border-color); transition:transform .2s, border-color .2s, box-shadow .2s;
+      display:flex; flex-direction:column; gap:0.55rem;
+    }
+    .fc-card:hover { transform:translateY(-5px); border-color:var(--border-strong); box-shadow:var(--glow-primary); }
+    .fc-card-top { display:flex; flex-direction:column; align-items:flex-start; gap:0.5rem; }
+    .fc-card-name { font-size:1.08rem; font-weight:800; color:#fff; font-family:var(--font-code,monospace);
+      overflow-wrap:anywhere; line-height:1.2; }
+    .fc-card-tag {
+      font-size:0.62rem; font-weight:700; text-transform:uppercase; letter-spacing:0.06em; align-self:flex-start;
+      max-width:100%; color:var(--accent-primary); background:color-mix(in srgb, var(--accent-primary) 14%, transparent);
+      border:1px solid color-mix(in srgb, var(--accent-primary) 30%, transparent);
+      padding:3px 8px; border-radius:7px; white-space:nowrap;
+    }
+    .fc-card-stands { font-size:0.82rem; color:var(--accent-tertiary); font-weight:600; }
+    .fc-card-blurb { font-size:0.88rem; color:var(--text-muted,#9fb4cc); line-height:1.5; }
+    .fc-card-open { margin-top:auto; font-size:0.8rem; font-weight:700; color:var(--accent-secondary); }
+
+    /* Detail view */
+    .fc-detail { display:none; }
+    .fc-detail.is-open { display:block; animation:fcFade .35s ease; }
+    @keyframes fcFade { from{opacity:0; transform:translateY(10px);} to{opacity:1; transform:translateY(0);} }
+    .fc-back {
+      font:inherit; font-size:0.85rem; font-weight:600; cursor:pointer; color:var(--accent-secondary);
+      background:none; border:none; padding:0; margin-bottom:1.2rem; display:inline-flex; align-items:center; gap:6px;
+    }
+    .fc-back:hover { color:#fff; }
+    .fc-detail-head { display:flex; flex-wrap:wrap; align-items:center; gap:0.8rem; margin-bottom:0.4rem; }
+    .fc-detail-name {
+      font-size:clamp(1.8rem, 5vw, 2.6rem); font-weight:800; color:#fff; font-family:var(--font-code,monospace);
+      background:linear-gradient(135deg,#fff 0%, var(--accent-primary) 100%);
+      -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;
+    }
+    .fc-detail-tag {
+      font-size:0.68rem; font-weight:700; text-transform:uppercase; letter-spacing:0.07em; color:var(--accent-primary);
+      background:color-mix(in srgb, var(--accent-primary) 14%, transparent);
+      border:1px solid color-mix(in srgb, var(--accent-primary) 32%, transparent); padding:4px 10px; border-radius:8px;
+    }
+    .fc-detail-stands { font-size:1.05rem; color:var(--accent-tertiary); font-weight:600; margin-bottom:1.8rem; }
+    .fc-detail-stands strong { color:#fff; }
+
+    .fc-section {
+      background:rgba(255,255,255,0.025); border:1px solid var(--border-color); border-radius:18px;
+      padding:1.4rem 1.5rem; margin-bottom:1.2rem;
+    }
+    .fc-section h3 {
+      font-size:1.05rem; font-weight:700; color:#fff; margin:0 0 0.7rem;
+      display:flex; align-items:center; gap:9px;
+    }
+    .fc-section h3 .fc-ico { font-size:1.1rem; }
+    .fc-section p { color:var(--text-soft,#c3d3e8); line-height:1.7; margin:0 0 0.7rem; }
+    .fc-section p:last-child { margin-bottom:0; }
+    .fc-section code {
+      background:color-mix(in srgb, var(--accent-primary) 18%, rgba(255,255,255,0.07));
+      padding:1px 6px; border-radius:6px; font-size:0.88em; font-family:var(--font-code,monospace);
+    }
+    .fc-mistakes { list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:0.6rem; }
+    .fc-mistakes li {
+      display:flex; gap:9px; align-items:flex-start; color:var(--text-soft,#c3d3e8); line-height:1.6;
+    }
+    .fc-mistakes li::before { content:"⚠️"; flex-shrink:0; }
+
+    /* Runnable showcase (terminal style) */
+    .fc-demo { margin-bottom:1.1rem; }
+    .fc-demo-label { font-size:0.85rem; font-weight:700; color:var(--accent-tertiary); margin-bottom:0.5rem; }
+    .fc-demo .code-display-box { margin:0; }
+    .fc-codebar { display:flex; align-items:center; gap:8px; }
+    .fc-codebar .code-filename { flex:1; }
+    .fc-copy, .fc-run {
+      font:inherit; font-weight:700; cursor:pointer; border-radius:8px; transition:all .15s;
+    }
+    .fc-copy {
+      font-size:0.7rem; color:#fff; padding:4px 11px;
+      border:1px solid color-mix(in srgb, var(--accent-primary) 45%, transparent);
+      background:color-mix(in srgb, var(--accent-primary) 22%, transparent);
+    }
+    .fc-copy:hover { background:color-mix(in srgb, var(--accent-primary) 38%, transparent); }
+    .fc-copy.is-copied { background:#1f8f4e; border-color:#27a35c; }
+    .fc-run {
+      margin-top:0.7rem; font-size:0.85rem; color:#06121f; padding:8px 18px; border:none;
+      background:var(--gradient-primary); box-shadow:var(--glow-primary);
+    }
+    .fc-run:hover { filter:brightness(1.08); transform:translateY(-1px); }
+    .fc-run:active { transform:scale(.97); }
+
+    .fc-pager { display:flex; justify-content:space-between; gap:1rem; margin-top:1.6rem; }
+    .fc-pager button {
+      flex:1; font:inherit; font-size:0.9rem; font-weight:700; cursor:pointer; color:#fff;
+      padding:13px; border-radius:14px; background:rgba(255,255,255,0.04);
+      border:1px solid var(--border-color); transition:all .18s; min-width:0;
+    }
+    .fc-pager button:hover:not(:disabled) { border-color:var(--border-strong); background:rgba(255,255,255,0.07); }
+    .fc-pager button:disabled { opacity:0.35; cursor:default; }
+    .fc-pager .fc-pg-label { display:block; font-size:0.68rem; color:var(--text-muted,#9fb4cc); font-weight:600; }
+    .fc-pager .fc-pg-name { font-family:var(--font-code,monospace); }
+
+    @media (max-width:600px){
+      .fc-grid { grid-template-columns:1fr; }
+      .fc-section { padding:1.1rem 1.1rem; }
+    }
+  </style>
+</head>
+<body data-page-category="python-fundamentals">
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-container">
+      <div class="brand-area">
+        <a href="index.html" class="brand-logo" aria-label="AlgoPath Home">
+          <span class="brand-mark">&lt;/&gt;</span>
+          <span class="brand-name">AlgoPath</span>
+        </a>
+      </div>
+      <nav class="main-nav" aria-label="Page Navigation">
+        <ul class="nav-list">
+          <li><a href="index.html" class="nav-link">← Home</a></li>
+          <li><a href="#concepts" class="nav-link">Concepts</a></li>
+        </ul>
+      </nav>
+      <div class="cat-switch">
+        <span class="cat-switch-label">Switch</span>
+        <a href="python-basics.html" class="cat-switch-link" title="Python Basics">
+          <img src="images/python.png" alt="Python Basics">
+        </a>
+        <a href="applications.html" class="cat-switch-link" title="App Development">
+          <img src="images/application.png" alt="Application Development">
+        </a>
+        <a href="user-interface.html" class="cat-switch-link" title="User Interface">
+          <img src="images/ui.png" alt="User Interface">
+        </a>
+        <a href="ai.html" class="cat-switch-link" title="Artificial Intelligence">
+          <img src="images/ai.png" alt="Artificial Intelligence">
+        </a>
+        <a href="cyber-security.html" class="cat-switch-link" title="Cyber Security">
+          <img src="images/cyber-security.png" alt="Cyber Security">
+        </a>
+        <a href="data-analysis.html" class="cat-switch-link" title="Data Analysis">
+          <img src="images/data-analysis.png" alt="Data Analysis">
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- Hero -->
+    <section class="cat-hero-section">
+      <div class="container cat-hero-inner">
+        <span class="cat-hero-icon-large"><img src="images/python.png" alt="Python Fundamentals"></span>
+        <h1 class="cat-hero-title">Python Fundamentals</h1>
+        <p class="cat-hero-desc">
+          A friendly reference for the core building blocks of Python — keywords, built-in
+          functions, and data structures. Tap any concept to learn what it means, how and
+          when to use it, the mistakes beginners make, and run live examples in a terminal.
+        </p>
+        <div class="cat-hero-meta">
+          <span class="cat-hero-count" id="fc-count">Concepts</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Concepts -->
+    <section class="cat-levels-section" id="concepts">
+      <div class="container">
+
+        <!-- List view -->
+        <div id="fc-list">
+          <div class="section-heading">
+            <p class="section-label">Reference Library</p>
+            <h2 class="section-title">Pick a Concept to Explore</h2>
+            <p class="section-description">
+              Filter by category, then tap a card to open its full explanation and runnable showcase.
+            </p>
+          </div>
+          <div class="fc-search">
+            <input id="fc-search" type="text" autocomplete="off" spellcheck="false"
+              placeholder="Search concepts — e.g. 'length', 'loop', or even 'diktionary'…" />
+          </div>
+          <div class="fc-chips" id="fc-chips"></div>
+          <div class="fc-grid" id="fc-grid"></div>
+        </div>
+
+        <!-- Detail view -->
+        <article class="fc-detail" id="fc-detail"></article>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-container">
+      <div class="footer-brand">
+        <h3 class="footer-logo">AlgoPath</h3>
+        <p class="footer-statement">
+          Learn Python through interactive step-by-step lessons, execution tracing,
+          and progressive challenges. Build real programming intuition one level at a time.
+        </p>
+      </div>
+      <div class="footer-links">
+        <h4 class="footer-heading">Categories</h4>
+        <ul class="footer-list">
+          <li><a href="python-basics.html">🐍 Python Basics</a></li>
+          <li><a href="applications.html">⚙️ App Development</a></li>
+          <li><a href="user-interface.html">🎨 User Interface</a></li>
+          <li><a href="ai.html">🤖 Artificial Intelligence</a></li>
+          <li><a href="cyber-security.html">🔐 Cyber Security</a></li>
+          <li><a href="data-analysis.html">📊 Data Analysis</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h4 class="footer-heading">Navigate</h4>
+        <ul class="footer-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="python-fundamentals.html">Python Fundamentals</a></li>
+          <li><a href="#concepts">Concepts</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script src="fundamentals.js"></script>
+  <script src="chat-tutor.js"></script>
+</body>
+</html>

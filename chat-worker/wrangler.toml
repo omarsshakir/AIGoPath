@@ -1,0 +1,10 @@
+# Cloudflare Worker config for the AlgoPath Tutor.
+# Deploy from this folder with:  npx wrangler deploy
+name = "algopath-tutor"
+main = "worker.js"
+compatibility_date = "2025-01-01"
+
+# Workers AI binding — this is how the Worker reaches the model.
+# No API key is stored anywhere; Cloudflare handles auth for you.
+[ai]
+binding = "AI"

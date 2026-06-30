@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Data Analysis – AlgoPath. Learn statistics, filtering, aggregation, visualisation, and anomaly detection through hands-on Python lessons." />
+  <title>Data Analysis – AlgoPath</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* ── Data Analysis theme: amber / emerald ── */
+    :root {
+      --accent-primary:   #f59e0b;
+      --accent-secondary: #10b981;
+      --accent-tertiary:  #fcd34d;
+      --border-color:     rgba(245, 158, 11, 0.18);
+      --border-strong:    rgba(245, 158, 11, 0.38);
+      --glow-primary:     0 0 0 1px rgba(245,158,11,0.08), 0 0 22px rgba(245,158,11,0.20);
+      --glow-secondary:   0 0 0 1px rgba(16,185,129,0.12), 0 0 24px rgba(16,185,129,0.16);
+      --gradient-primary: linear-gradient(135deg, #f59e0b 0%, #10b981 100%);
+      --gradient-secondary: linear-gradient(135deg, rgba(245,158,11,0.12), rgba(16,185,129,0.14));
+      --gradient-hero:
+        radial-gradient(circle at top right, rgba(245,158,11,0.22), transparent 32%),
+        radial-gradient(circle at top left,  rgba(16,185,129,0.16), transparent 30%),
+        linear-gradient(180deg, #0d0e07 0%, #131408 36%, #161810 100%);
+    }
+    .cat-switch-link.is-active {
+      border-color: #f59e0b;
+      box-shadow: 0 0 14px rgba(245,158,11,0.32);
+    }
+  </style>
+</head>
+<body data-page-category="data-analysis">
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-container">
+      <div class="brand-area">
+        <a href="index.html" class="brand-logo" aria-label="AlgoPath Home">
+          <span class="brand-mark">&lt;/&gt;</span>
+          <span class="brand-name">AlgoPath</span>
+        </a>
+      </div>
+      <nav class="main-nav" aria-label="Page Navigation">
+        <ul class="nav-list">
+          <li><a href="index.html" class="nav-link">← Home</a></li>
+          <li><a href="#levels" class="nav-link">Levels</a></li>
+          <li><a href="#playground" class="nav-link">Playground</a></li>
+          <li><a href="#challenges" class="nav-link">Challenges</a></li>
+          <li><a href="#progress" class="nav-link">Progress</a></li>
+        </ul>
+      </nav>
+      <div class="cat-switch">
+        <span class="cat-switch-label">Switch</span>
+        <a href="python-basics.html" class="cat-switch-link" title="Python Basics">
+          <img src="images/python.png" alt="Python Basics">
+        </a>
+        <a href="applications.html" class="cat-switch-link" title="App Development">
+          <img src="images/application.png" alt="Application Development">
+        </a>
+        <a href="user-interface.html" class="cat-switch-link" title="User Interface">
+          <img src="images/ui.png" alt="User Interface">
+        </a>
+        <a href="ai.html" class="cat-switch-link" title="Artificial Intelligence">
+          <img src="images/ai.png" alt="Artificial Intelligence">
+        </a>
+        <a href="cyber-security.html" class="cat-switch-link" title="Cyber Security">
+          <img src="images/cyber-security.png" alt="Cyber Security">
+        </a>
+        <a href="data-analysis.html" class="cat-switch-link is-active" title="Data Analysis">
+          <img src="images/data-analysis.png" alt="Data Analysis">
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+
+    <!-- Category Hero -->
+    <section class="cat-hero-section">
+      <div class="container cat-hero-inner">
+
+        <span class="cat-hero-icon-large">
+          <img src="images/data-analysis.png" alt="Data Analysis">
+        </span>
+
+        <h1 class="cat-hero-title">Data Analysis</h1>
+
+        <p class="cat-hero-desc">
+          Turn raw numbers into insights — learn to load datasets, compute statistics,
+          sort and filter records, group and aggregate data, detect outliers, and
+          build text-based visualisations. The foundation of every data science role.
+        </p>
+
+        <div class="cat-hero-meta">
+          <span class="cat-hero-count" data-level-count="data-analysis">10 Levels</span>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Levels Row -->
+    <section class="cat-levels-section" id="levels">
+      <div class="container">
+        <div class="section-heading">
+          <p class="section-label">Data Analysis</p>
+          <h2 class="section-title">Choose Your Level</h2>
+          <p class="section-description">
+            Complete each level to unlock the next. Click any card then use the
+            Playground below to step through the code and see the output.
+          </p>
+        </div>
+        <div class="level-category" data-category="data-analysis">
+          <div class="category-header">
+            <div class="category-navigation">
+              <button class="category-arrow category-arrow-left"
+                data-scroll-target="data-analysis-grid"
+                data-direction="left">◀</button>
+              <button class="category-arrow category-arrow-right"
+                data-scroll-target="data-analysis-grid"
+                data-direction="right">▶</button>
+            </div>
+          </div>
+          <div class="levels-row" id="data-analysis-grid"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Lesson Playground -->
+    <section class="demo-section" id="playground">
+      <div class="container">
+        <div class="section-heading">
+          <p class="section-label">Interactive Lesson</p>
+          <h2 class="section-title">Step Through the Code</h2>
+          <p class="section-description">
+            Click a level above to load it here, then step through each line or
+            press Run Code for an animated walkthrough.
+          </p>
+        </div>
+        <div class="demo-layout">
+          <article class="lesson-panel">
+            <div class="panel-header">
+              <div class="lesson-header-text">
+                <h3 class="panel-title">Select a level above to begin</h3>
+                <span class="lesson-tag">Data Analysis</span>
+              </div>
+              <button class="btn btn-secondary" id="copy-code-btn" type="button">Copy Code</button>
+            </div>
+
+            <div class="code-display-box" aria-label="Python Code Display">
+              <div class="code-display-topbar">
+                <span class="window-dot dot-red"></span>
+                <span class="window-dot dot-yellow"></span>
+                <span class="window-dot dot-green"></span>
+                <span class="code-filename">analysis.py</span>
+              </div>
+              <pre class="python-code"><code></code></pre>
+              <div class="vsc-terminal" id="code-output-section" style="display:none;">
+                <div class="vsc-terminal-bar">
+                  <div class="vsc-terminal-tabs">
+                    <span class="vsc-terminal-dot vsc-dot-red"></span>
+                    <span class="vsc-terminal-dot vsc-dot-yellow"></span>
+                    <span class="vsc-terminal-dot vsc-dot-green"></span>
+                    <span class="vsc-terminal-tab-label">TERMINAL</span>
+                  </div>
+                  <span class="vsc-terminal-cmd">python&nbsp;analysis.py</span>
+                </div>
+                <div class="vsc-terminal-body">
+                  <div class="vsc-terminal-prompt-row">
+                    <span class="vsc-term-ps">PS</span>
+                    <span class="vsc-term-path">&nbsp;C:\AlgoPath&gt;</span>
+                    <span class="vsc-term-cmd">&nbsp;python analysis.py</span>
+                  </div>
+                  <div class="vsc-terminal-output" id="output-value"></div>
+                  <div class="vsc-terminal-cursor-row">
+                    <span class="vsc-term-ps">PS</span>
+                    <span class="vsc-term-path">&nbsp;C:\AlgoPath&gt;</span>
+                    <span class="vsc-terminal-cursor">▌</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="step-progress-wrap">
+              <div class="step-progress-bar" id="step-progress-bar">
+                <div class="step-progress-fill" id="step-progress-fill"></div>
+              </div>
+              <span class="step-counter" id="step-counter">Ready</span>
+            </div>
+
+            <div class="lesson-controls">
+              <button class="btn btn-primary" id="run-code-btn">Run Code</button>
+              <button class="btn btn-outline" id="prev-level-btn">Previous Level</button>
+              <button class="btn btn-secondary" id="prev-step-btn">← Prev Step</button>
+              <button class="btn btn-secondary" id="next-step-btn">Next Step →</button>
+              <button class="btn btn-outline" id="next-level-btn">Next Level</button>
+            </div>
+            <p class="keyboard-hint">Tip: press <kbd>←</kbd> / <kbd>→</kbd> to step through the code</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Challenges -->
+    <section class="challenges-section" id="challenges">
+      <div class="container">
+        <div class="section-heading">
+          <p class="section-label">Coding Challenges</p>
+          <h2 class="section-title">Test Your Understanding</h2>
+          <p class="section-description">
+            Each lesson comes with a data challenge. Apply the technique to a new
+            dataset and deepen your analytical thinking.
+          </p>
+        </div>
+        <div class="challenges-grid"></div>
+      </div>
+    </section>
+
+    <!-- Progress -->
+    <section class="progress-section" id="progress">
+      <div class="container">
+        <div class="section-heading">
+          <p class="section-label">Your Progress</p>
+          <h2 class="section-title">Track Your Learning</h2>
+          <p class="section-description">
+            Follow your progress through all data analysis lessons and earned badges.
+          </p>
+        </div>
+        <div class="progress-layout">
+          <article class="progress-card xp-card">
+            <h3 class="progress-title">XP Progress</h3>
+            <div class="xp-bar-wrapper">
+              <div class="xp-bar"><div class="xp-fill" style="width:0%;"></div></div>
+              <p class="xp-text">0 XP earned</p>
+            </div>
+          </article>
+          <article class="progress-card stats-card">
+            <h3 class="progress-title">Learning Stats</h3>
+            <div class="stats-grid">
+              <div class="stat-box"><span class="stat-number">0</span><span class="stat-label">Total Levels</span></div>
+              <div class="stat-box"><span class="stat-number">0</span><span class="stat-label">Unlocked</span></div>
+              <div class="stat-box"><span class="stat-number">0</span><span class="stat-label">Remaining</span></div>
+              <div class="stat-box"><span class="stat-number">0</span><span class="stat-label">Completed</span></div>
+            </div>
+          </article>
+          <article class="progress-card unlock-card">
+            <h3 class="progress-title">Unlock Status</h3>
+            <p class="unlock-text">Complete each level to unlock the next one.</p>
+          </article>
+          <article class="progress-card badges-card">
+            <h3 class="progress-title">Earned Badges</h3>
+            <div class="badges-grid"><div class="badge-item">Start learning to earn badges</div></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-container">
+      <div class="footer-brand">
+        <h3 class="footer-logo">AlgoPath</h3>
+        <p class="footer-statement">
+          Learn Python through interactive step-by-step lessons, execution tracing,
+          and progressive challenges. Build real programming intuition one level at a time.
+        </p>
+      </div>
+      <div class="footer-links">
+        <h4 class="footer-heading">Categories</h4>
+        <ul class="footer-list">
+          <li><a href="python-basics.html">🐍 Python Basics</a></li>
+          <li><a href="applications.html">⚙️ App Development</a></li>
+          <li><a href="user-interface.html">🎨 User Interface</a></li>
+          <li><a href="ai.html">🤖 Artificial Intelligence</a></li>
+          <li><a href="cyber-security.html">🔐 Cyber Security</a></li>
+          <li><a href="data-analysis.html">📊 Data Analysis</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h4 class="footer-heading">Navigate</h4>
+        <ul class="footer-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="#levels">Levels</a></li>
+          <li><a href="#playground">Playground</a></li>
+          <li><a href="#challenges">Challenges</a></li>
+          <li><a href="#progress">Progress</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script src="chat-tutor.js"></script>
+</body>
+</html>
